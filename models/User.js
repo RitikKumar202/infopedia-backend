@@ -29,9 +29,9 @@ UserSchema.methods.generateJWT = async function () {
   });
 };
 
-// UserSchema.methods.comparePassword = async function (enteredPassword) {
-//   return await compare(enteredPassword, this.password);
-// };
+UserSchema.methods.comparePassword = async function (enteredPassword) {
+  return await compare(enteredPassword, this.password);
+};
 
 const User = model("User", UserSchema);
 export default User;

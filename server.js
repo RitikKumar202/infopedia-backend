@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
-app.use("/api/users", userRoutes);
+app.use("/api/user", userRoutes);
 
 app.use(invalidPathHandler);
 app.use(errorResponserHandler);
