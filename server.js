@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
+import path from "path";
 import {
   errorResponserHandler,
   invalidPathHandler,
@@ -20,6 +21,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
+
+//Static assets
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 app.use(invalidPathHandler);
 app.use(errorResponserHandler);
