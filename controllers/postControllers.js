@@ -7,8 +7,8 @@ import { v4 as uuidv4 } from "uuid";
 const createPost = async (req, res, next) => {
   try {
     const post = new Post({
-      title: "sample title",
-      caption: "sample caption",
+      title: "Sample Title",
+      caption: "Sample Caption",
       slug: uuidv4(),
       body: {
         type: "doc",
@@ -79,4 +79,23 @@ const updatePost = async (req, res, next) => {
   }
 };
 
-export { createPost, updatePost };
+const deletePost = async (req, res, next) => {
+  try {
+    const post = await Post.findOneAndDelete({ slug: req.params.slug });
+
+    if (!post) {
+      const error = new Error("Post not found");
+      return next(error);
+    }
+
+    await Comment.deleteMany({ post: post._id });
+
+    return res.json({
+      message: "Post deleted successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export { createPost, updatePost, deletePost };
