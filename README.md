@@ -12,6 +12,14 @@
 
 - After cloning the repo, open folder in terminal.
 
+- Add environment variables by creating .env file
+
+```bash
+  PORT = YOUR_PORT_NUMBER
+  DB_URI = YOUR_DB_URL
+  JWT_SECRET = YOUR_SECRET_KEY
+```
+
 - Run the following commands:
     - `npm install`
     - `npm run dev`
@@ -25,4 +33,5 @@
 
 -----------
 
-[Frontend of Infopedia](https://github.com/RitikKumar202/infopedia-frontend)
+[Frontend Repository](https://github.com/RitikKumar202/infopedia-frontend)
+    
